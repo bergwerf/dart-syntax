@@ -4,25 +4,38 @@
           mimetype="text/x-dart;text/x-dart-source;text/x-script.dart;application/x-dart" indenter="cstyle"
           author="Herman Bergwerf (hermanbergwerf@gmail.com)" license="CC0">
   <highlighting>
+    <list name="control">
+      <item>await</item>
+      <item>break</item>
+      <item>case</item>
+      <item>catch</item>
+      <item>continue</item>
+      <item>default</item>
+      <item>do</item>
+      <item>else</item>
+      <item>finally</item>
+      <item>for</item>
+      <item>if</item>
+      <item>rethrow</item>
+      <item>return</item>
+      <item>switch</item>
+      <item>throw</item>
+      <item>try</item>
+      <item>while</item>
+      <item>yield</item>
+      <item>yield*</item>
+    </list>
     <list name="keywords">
       <item>abstract</item>
       <item>as</item>
       <item>assert</item>
       <item>async</item>
       <item>async*</item>
-      <item>await</item>
-      <item>break</item>
-      <item>case</item>
-      <item>catch</item>
       <item>class</item>
       <item>const</item>
-      <item>continue</item>
       <item>covariant</item>
-      <item>default</item>
       <item>deferred</item>
-      <item>do</item>
       <item>dynamic</item>
-      <item>else</item>
       <item>enum</item>
       <item>export</item>
       <item>external</item>
@@ -30,10 +43,7 @@
       <item>factory</item>
       <item>false</item>
       <item>final</item>
-      <item>finally</item>
-      <item>for</item>
       <item>get</item>
-      <item>if</item>
       <item>implements</item>
       <item>import</item>
       <item>in</item>
@@ -43,28 +53,21 @@
       <item>null</item>
       <item>operator</item>
       <item>part</item>
-      <item>rethrow</item>
-      <item>return</item>
       <item>set</item>
       <item>static</item>
       <item>super</item>
-      <item>switch</item>
       <item>sync*</item>
       <item>this</item>
-      <item>throw</item>
       <item>true</item>
-      <item>try</item>
       <item>typedef</item>
       <item>var</item>
       <item>void</item>
-      <item>while</item>
       <item>with</item>
-      <item>yield</item>
-      <item>yield*</item>
     </list>
     <contexts>
       <context attribute="Normal Text" lineEndContext="#pop" name="Normal Text">
         <keyword attribute="Keyword" context="#stay" String="keywords" />
+        <keyword attribute="Control" context="#stay" String="control" />
         
         <Float attribute="Float" context="NoRegExp" />
         <Int attribute="Decimal" context="NoRegExp" />
@@ -83,9 +86,13 @@
       </context>
     </contexts>
     <itemDatas>
-      <itemData name="Normal Text" defStyleNum="dsNormal" />
-      <itemData name="Keyword" defStyleNum="dsKeyword" />
-      <itemData name="String" defStyleNum="dsString" />
+      <itemData name="Normal Text"  defStyleNum="dsNormal" spellChecking="false" />
+      <itemData name="Keyword"      defStyleNum="dsKeyword" spellChecking="false" />
+      <itemData name="Control"      defStyleNum="dsControlFlow" spellChecking="false" />
+      <itemData name="String"       defStyleNum="dsString" spellChecking="false" />
+      <itemData name="Decimal"      defStyleNum="dsDecVal" spellChecking="false" />
+      <itemData name="Float"        defStyleNum="dsFloat" spellChecking="false" />
+      <itemData name="Comment"      defStyleNum="dsComment" />
     </itemDatas>
   </highlighting>
 
