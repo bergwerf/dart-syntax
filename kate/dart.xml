@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language name="Dart" version="1" kateversion="5.0" section="Sources" extensions="*.dart"
+          mimetype="text/x-dart;text/x-dart-source;text/x-script.dart;application/x-dart" indenter="cstyle"
+          author="Herman Bergwerf (hermanbergwerf@gmail.com)" license="CC0">
+  <highlighting>
+  </highlighting>
+</language>
+
+<!-- kate: space-indent on; indent-width 2; -->
