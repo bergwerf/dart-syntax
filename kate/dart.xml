@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "language.dtd">
+<!-- The XML syntax file for JavaScript by Anders Lund was used for inspiration -->
 <language name="Dart" version="1" kateversion="5.0" section="Sources" extensions="*.dart"
           mimetype="text/x-dart;text/x-dart-source;text/x-script.dart;application/x-dart" indenter="cstyle"
           author="Herman Bergwerf (hermanbergwerf@gmail.com)" license="CC0">
@@ -67,32 +68,57 @@
     <contexts>
       <context attribute="Normal Text" lineEndContext="#pop" name="Normal Text">
         <keyword attribute="Keyword" context="#stay" String="keywords" />
-        <keyword attribute="Control" context="#stay" String="control" />
+        <keyword attribute="ControlFlow" context="#stay" String="control" />
+        
+        <!-- Comments -->
+        <Detect2Chars attribute="Comment" context="Comment" char="/" char1="/" />
+        <Detect2Chars attribute="Comment" context="Multi/inline Comment" char="/" char1="*" beginRegion="Comment" />
         
         <Float attribute="Float" context="NoRegExp" />
+        <HlCHex attribute="Hex" context="NoRegExp" />
         <Int attribute="Decimal" context="NoRegExp" />
         
         <!-- Strings with single or double quotes -->
-        <DetectChar attribute="String" context="string" char="&quot;" />
-        <DetectChar attribute="String" context="string-sq" char="'" />
+        <DetectChar attribute="String" context="String" char="&quot;" />
+        <DetectChar attribute="String" context="String SQ" char="'" />
+      </context>
+      
+      <context attribute="Normal Text" lineEndContext="#stay" fallthrough="true" fallthroughContext="#pop" name="NoRegExp">
+        <Detect2Chars context="#pop" lookAhead="true" char="/" char1="/" />
+        <Detect2Chars context="#pop" lookAhead="true" char="/" char1="*" />
+        <DetectChar context="#pop" char="/" />
+        <DetectSpaces/>
+      </context>
+      
+      <!-- Comment contexts -->
+      <context attribute="Comment" lineEndContext="#pop" name="Comment">
+        <IncludeRules context="##Alerts" />
+        <IncludeRules context="##Modelines" />
+      </context>
+      <context attribute="Comment" lineEndContext="#stay" name="Multi/inline Comment">
+        <IncludeRules context="##Alerts" />
+        <IncludeRules context="##Modelines" />
+        <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment" />
       </context>
       
       <!-- String contexts -->
-      <context attribute="String" lineEndContext="#stay" name="string">
+      <context attribute="String" lineEndContext="#stay" name="String">
         <DetectChar attribute="String" context="#pop" char="&quot;" />
       </context>
-      <context attribute="String" lineEndContext="#stay" name="string-sq">
+      <context attribute="String" lineEndContext="#stay" name="String SQ">
         <DetectChar attribute="String" context="#pop" char="'" />
       </context>
     </contexts>
     <itemDatas>
       <itemData name="Normal Text"  defStyleNum="dsNormal" spellChecking="false" />
       <itemData name="Keyword"      defStyleNum="dsKeyword" spellChecking="false" />
-      <itemData name="Control"      defStyleNum="dsControlFlow" spellChecking="false" />
-      <itemData name="String"       defStyleNum="dsString" spellChecking="false" />
-      <itemData name="Decimal"      defStyleNum="dsDecVal" spellChecking="false" />
-      <itemData name="Float"        defStyleNum="dsFloat" spellChecking="false" />
+      <itemData name="ControlFlow"  defStyleNum="dsControlFlow" spellChecking="false" />
       <itemData name="Comment"      defStyleNum="dsComment" />
+
+      <itemData name="Decimal"      defStyleNum="dsDecVal" spellChecking="false" />
+      <itemData name="Hex"          defStyleNum="dsBaseN" spellChecking="false" />
+      <itemData name="Float"        defStyleNum="dsFloat" spellChecking="false" />
+      <itemData name="String"       defStyleNum="dsString" spellChecking="false" />
     </itemDatas>
   </highlighting>
 
