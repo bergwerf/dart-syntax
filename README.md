@@ -7,4 +7,4 @@ Specifically for GtkSourceView and KSyntaxHighlighting.
 
 ### Linux standard
 
-+ Copy `kate/dart.xml` to `~/.local/share/org.kde.syntax-highlighting/syntax/dart.xml`
++ Copy `kate/dart.xml` to `~/.local/share/katepart5/syntax/dart.xml`
